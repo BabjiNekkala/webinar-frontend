@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Claude Masterclass — 5 July 2026 | Master AI in One Day</title>
+  <meta name="description" content="A 90-minute live workshop to master Claude AI: advanced prompting, document mastery, Computer Use, MCP automation & artifacts. ₹999 only. 5 July 2026." />
+  <meta property="og:title" content="Claude Masterclass — Master AI in One Day" />
+  <meta property="og:description" content="90 minutes. 6 power skills. Live demos. ₹999. Use AI to do a day's work before lunch." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          },
+          colors: {
+            cm: {
+              bg: '#080B14',
+              bg2: '#0A0E1A',
+              card: '#111726',
+              cardHover: '#161E30',
+              border: '#1E2738',
+              borderLight: '#2A3551',
+              coral: '#D97757',
+              coralHover: '#E89070',
+              coralDark: '#B85C3E',
+              violet: '#7C5CFF',
+              violetDark: '#5B3FD6',
+              cyan: '#22D3EE',
+              muted: '#64748B',
+              light: '#CBD5E1',
+              green: '#22C55E',
+              greenDim: 'rgba(34,197,94,0.15)',
+              red: '#EF4444',
+              redDim: 'rgba(239,68,68,0.12)'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      background: #080B14;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    ::selection { background: rgba(217,119,87,0.3); color: #fff; }
+
+    /* ===== GRID + AURORA BACKGROUND ===== */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(30,39,56,0.30) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(30,39,56,0.30) 1px, transparent 1px);
+      background-size: 56px 56px;
+      pointer-events: none;
+      z-index: 0;
+      mask-image: radial-gradient(ellipse 100% 60% at 50% 0%, #000 30%, transparent 80%);
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      top: -25%; left: 50%;
+      width: 120vw; height: 80vh;
+      transform: translateX(-50%);
+      background:
+        radial-gradient(ellipse 50% 60% at 30% 30%, rgba(124,92,255,0.16), transparent 60%),
+        radial-gradient(ellipse 50% 60% at 70% 40%, rgba(217,119,87,0.16), transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+      filter: blur(20px);
+    }
+    body > * { position: relative; z-index: 1; }
+
+    .grad-text {
+      background: linear-gradient(120deg, #E89070 0%, #D97757 35%, #9D7BFF 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* ===== CURSOR SPOTLIGHT ===== */
+    .cursor-spotlight {
+      position: fixed;
+      width: 480px; height: 480px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(217,119,87,0.06) 0%, rgba(124,92,255,0.04) 35%, transparent 70%);
+      pointer-events: none;
+      z-index: 2;
+      transform: translate(-50%, -50%);
+      transition: opacity 0.3s;
+    }
+
+    /* ===== TICKER TAPE ===== */
+    .ticker-wrap {
+      overflow: hidden;
+      background: rgba(17,23,38,0.85);
+      border-top: 1px solid #1E2738;
+      border-bottom: 1px solid #1E2738;
+      backdrop-filter: blur(8px);
+    }
+    .ticker-track { display: flex; white-space: nowrap; animation: ticker-scroll 34s linear infinite; }
+    @keyframes ticker-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    .ticker-item {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 22px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.74rem; letter-spacing: 0.02em;
+    }
+
+    /* ===== NEURAL HERO CANVAS ===== */
+    #neuralCanvas {
+      position: absolute; inset: 0;
+      pointer-events: none; z-index: 0;
+      opacity: 0.55;
+    }
+
+    /* ===== CTA BUTTONS ===== */
+    .cta-btn {
+      background: linear-gradient(135deg, #E89070 0%, #D97757 45%, #8E63F5 100%);
+      background-size: 180% 180%;
+      color: #fff;
+      min-height: 54px;
+      cursor: pointer;
+      transition: box-shadow 0.25s, transform 0.2s, background-position 0.6s;
+      position: relative; overflow: hidden;
+      font-weight: 800;
+    }
+    .cta-btn::after {
+      content: '';
+      position: absolute; top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.22) 50%, transparent 60%);
+      transition: transform 0.5s; transform: translateX(-100%);
+    }
+    .cta-btn:hover::after { transform: translateX(100%); }
+    .cta-btn:hover { box-shadow: 0 0 40px rgba(217,119,87,0.4), 0 0 80px rgba(124,92,255,0.18); background-position: 100% 0; }
+    .cta-btn:active { transform: scale(0.975) !important; }
+    .cta-ghost {
+      border: 1px solid #2A3551; background: rgba(17,23,38,0.6);
+      transition: border-color 0.25s, background 0.25s, transform 0.2s;
+    }
+    .cta-ghost:hover { border-color: #D97757; background: rgba(217,119,87,0.06); transform: translateY(-2px); }
+
+    /* ===== TILT CARDS ===== */
+    .tilt-card {
+      transition: transform 0.15s ease-out, box-shadow 0.25s, border-color 0.25s;
+      transform-style: preserve-3d; will-change: transform;
+    }
+    .tilt-card:hover { box-shadow: 0 24px 48px rgba(0,0,0,0.45), 0 0 26px rgba(124,92,255,0.10); border-color: #2A3551; }
+    .tilt-card .tilt-shine {
+      position: absolute; inset: 0; border-radius: inherit;
+      pointer-events: none; opacity: 0; transition: opacity 0.3s;
+      background: radial-gradient(circle at var(--shine-x,50%) var(--shine-y,50%), rgba(217,119,87,0.12) 0%, transparent 60%);
+    }
+    .tilt-card:hover .tilt-shine { opacity: 1; }
+
+    /* ===== SCROLL REVEAL ===== */
+    .reveal { opacity: 0; transform: translateY(35px); transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-left { opacity: 0; transform: translateX(-35px); transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+    .reveal-left.visible { opacity: 1; transform: translateX(0); }
+
+    /* ===== TEXT REVEAL ===== */
+    .text-reveal .word { display: inline-block; opacity: 0; transform: translateY(18px); transition: opacity 0.45s cubic-bezier(0.16,1,0.3,1), transform 0.45s cubic-bezier(0.16,1,0.3,1); }
+    .text-reveal.visible .word { opacity: 1; transform: translateY(0); }
+
+    /* ===== SIGNAL LINE DIVIDER ===== */
+    .chart-divider { max-width: 42rem; margin: 0 auto; height: 40px; position: relative; overflow: hidden; }
+    .chart-divider svg { width: 100%; height: 100%; }
+    .chart-divider .line-draw { stroke-dasharray: 1200; stroke-dashoffset: 1200; transition: stroke-dashoffset 1.6s cubic-bezier(0.16,1,0.3,1); }
+    .chart-divider.visible .line-draw { stroke-dashoffset: 0; }
+
+    /* ===== ICON CHIP ===== */
+    .skill-icon {
+      width: 44px; height: 44px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+      background: linear-gradient(135deg, rgba(217,119,87,0.16), rgba(124,92,255,0.16));
+      border: 1px solid rgba(217,119,87,0.22);
+    }
+    .skill-icon svg { width: 22px; height: 22px; }
+
+    /* ===== TERMINAL ===== */
+    .terminal-header {
+      display: flex; align-items: center; gap: 6px;
+      padding: 10px 16px;
+      background: rgba(8,11,20,0.7);
+      border-bottom: 1px solid #1E2738;
+      border-radius: 12px 12px 0 0;
+    }
+    .terminal-dot { width: 11px; height: 11px; border-radius: 50%; }
+    .caret::after { content: '▋'; color: #D97757; animation: blink 1s steps(1) infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    /* ===== OFFER ROWS ===== */
+    .offer-row { transition: background 0.2s, transform 0.2s, border-color 0.2s; border-left: 2px solid transparent; }
+    .offer-row:hover { background: rgba(217,119,87,0.05); transform: translateX(6px); border-left-color: #D97757; }
+
+    /* ===== FAQ ===== */
+    .faq-item { position: relative; overflow: hidden; }
+    .faq-item .ripple { position: absolute; border-radius: 50%; background: rgba(217,119,87,0.12); transform: scale(0); animation: ripple-out 0.6s ease-out forwards; pointer-events: none; }
+    @keyframes ripple-out { to { transform: scale(4); opacity: 0; } }
+    details summary { cursor: pointer; list-style: none; }
+    details summary::-webkit-details-marker { display: none; }
+    details[open] .faq-chevron { transform: rotate(180deg); }
+    .faq-chevron { transition: transform 0.3s cubic-bezier(0.16,1,0.3,1); }
+
+    /* ===== LIVE PULSE ===== */
+    .live-dot { width: 8px; height: 8px; border-radius: 50%; background: #22C55E; position: relative; }
+    .live-dot::after { content: ''; position: absolute; inset: -3px; border-radius: 50%; border: 1.5px solid #22C55E; animation: live-ping 1.5s ease-out infinite; }
+    @keyframes live-ping { 0% { transform: scale(1); opacity: 0.8; } 100% { transform: scale(2.2); opacity: 0; } }
+
+    /* ===== PRICE GLOW ===== */
+    @keyframes price-glow { 0%,100% { text-shadow: 0 0 8px rgba(217,119,87,0.3); } 50% { text-shadow: 0 0 24px rgba(217,119,87,0.6), 0 0 48px rgba(124,92,255,0.2); } }
+    .price-glow { animation: price-glow 3s ease-in-out infinite; }
+
+    /* ===== FLOATING BADGE ===== */
+    @keyframes float-y { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+    .float-y { animation: float-y 4s ease-in-out infinite; }
+
+    /* ===== MARQUEE LOGOS ===== */
+    .logo-marquee { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
+    .logo-track { display: flex; gap: 3rem; white-space: nowrap; animation: ticker-scroll 26s linear infinite; }
+
+    /* ===== STICKY NAV ===== */
+    #nav { transition: background 0.3s, border-color 0.3s, padding 0.3s; }
+    #nav.scrolled { background: rgba(8,11,20,0.82); backdrop-filter: blur(14px); border-color: #1E2738; }
+
+    /* ===== MOBILE STICKY CTA ===== */
+    #mobileCta { transition: transform 0.4s cubic-bezier(0.16,1,0.3,1); }
+    #mobileCta.hidden-bar { transform: translateY(120%); }
+
+    /* ===== COUNTDOWN ===== */
+    .cd-box {
+      background: rgba(17,23,38,0.8); border: 1px solid #1E2738;
+      border-radius: 12px; min-width: 64px; padding: 10px 4px;
+    }
+    .cd-num { font-variant-numeric: tabular-nums; }
+
+    @media (max-width: 640px) { #neuralCanvas { opacity: 0.4; } }
+    .reduced * { animation: none !important; transition: none !important; }
+
+    /* ===== BOOKING MODAL ===== */
+    .cm-modal-overlay {
+      position: fixed; inset: 0; z-index: 99;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(8,11,20,0.92); backdrop-filter: blur(8px);
+      padding: 20px;
+    }
+    .cm-modal {
+      background: #111726; border: 1px solid #1E2738; border-radius: 20px;
+      width: 100%; max-width: 440px; max-height: 90vh; overflow-y: auto;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+    }
+    .cm-modal-header {
+      padding: 24px 24px 0; text-align: center;
+    }
+    .cm-modal-body { padding: 20px 24px 24px; }
+    .cm-field label {
+      display: block; font-size: 12px; font-weight: 600;
+      color: #64748B; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px;
+    }
+    .cm-field input {
+      width: 100%; background: #0A0E1A; border: 1px solid #1E2738; border-radius: 10px;
+      padding: 11px 14px; color: #fff; font-size: 14px; outline: none;
+      transition: border-color 0.2s;
+    }
+    .cm-field input:focus { border-color: #D97757; }
+    .cm-field input.invalid, .cm-combobox-input.invalid { border-color: #f87171; }
+    .cm-field input::placeholder { color: #475569; }
+    .cm-field { margin-bottom: 14px; }
+    .cm-field-error { color: #f87171; font-size: 11px; margin-top: 4px; min-height: 14px; }
+    .cm-error { color: #f87171; font-size: 12px; margin-top: 4px; }
+    .cm-success-icon { font-size: 52px; line-height: 1; }
+    .cm-combobox { position: relative; }
+    .cm-combobox-list {
+      display: none; position: absolute; left: 0; right: 0; top: calc(100% - 4px);
+      max-height: 180px; overflow-y: auto; z-index: 20;
+      background: #0A0E1A; border: 1px solid #2A3551; border-radius: 10px;
+      margin: 0; padding: 4px 0; list-style: none;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.45);
+    }
+    .cm-combobox.open .cm-combobox-list { display: block; }
+    .cm-combobox-option {
+      padding: 9px 14px; font-size: 13px; color: #CBD5E1; cursor: pointer;
+    }
+    .cm-combobox-option:hover, .cm-combobox-option.active { background: rgba(217,119,87,0.12); color: #fff; }
+    .cm-combobox-empty { padding: 9px 14px; font-size: 12px; color: #64748B; }
+    .cm-phone-wrap { display: flex; gap: 8px; }
+    .cm-phone-prefix {
+      flex-shrink: 0; width: 58px; background: #0A0E1A; border: 1px solid #1E2738;
+      border-radius: 10px; color: #94a3b8; font-size: 14px; display: flex;
+      align-items: center; justify-content: center; font-weight: 600;
+    }
+    .cm-phone-wrap input { flex: 1; }
+  </style>
+</head>
+<body class="font-sans text-cm-light">
+
+  <div class="cursor-spotlight" id="spotlight"></div>
+
+  <!-- ======================= TOP TICKER ======================= -->
+  <div class="ticker-wrap relative z-20">
+    <div class="ticker-track" id="ticker"></div>
+  </div>
+
+  <!-- ======================= NAV ======================= -->
+  <nav id="nav" class="sticky top-0 z-30 border-b border-transparent">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="#top" class="flex items-center gap-2.5 group">
+        <div class="w-9 h-9 rounded-xl flex items-center justify-center text-lg shrink-0" style="background:linear-gradient(135deg,#D97757,#7C5CFF);box-shadow:0 0 18px rgba(217,119,87,0.35)">🤖</div>
+        <span class="font-extrabold tracking-tight text-white text-[15px] hidden sm:inline">Claude<span class="grad-text">Masterclass</span></span>
+      </a>
+      <div class="hidden md:flex items-center gap-7 text-sm text-cm-muted font-medium">
+        <a href="#skills" class="hover:text-white transition">Skills</a>
+        <a href="#agenda" class="hover:text-white transition">Agenda</a>
+        <a href="#mentors" class="hover:text-white transition">Mentors</a>
+        <a href="#faq" class="hover:text-white transition">FAQ</a>
+      </div>
+      <button onclick="pay()" class="cta-btn rounded-xl px-4 sm:px-5 text-sm flex items-center gap-2">
+        <span class="hidden sm:inline">Book My Seat</span><span class="sm:hidden">Book</span> · ₹999
+      </button>
+    </div>
+  </nav>
+
+  <span id="top"></span>
+
+  <!-- ======================= HERO ======================= -->
+  <header class="relative overflow-hidden">
+    <canvas id="neuralCanvas"></canvas>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 pt-14 sm:pt-20 pb-16 relative">
+
+      <div class="flex justify-center mb-6 reveal">
+        <div class="float-y inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide"
+             style="background:rgba(217,119,87,0.10);border:1px solid rgba(217,119,87,0.28);color:#E89070">
+          🔥 Early Bird · 50% OFF · Limited Seats
+        </div>
+      </div>
+
+      <h1 class="text-center font-extrabold tracking-tight text-white leading-[1.05] text-[2rem] sm:text-6xl md:text-7xl text-reveal">
+        Master <span class="grad-text">Claude AI</span><br /> in One Day
+      </h1>
+
+      <p class="text-center text-lg sm:text-2xl text-cm-light mt-6 reveal font-medium">
+        Use AI to <span id="rotator" class="grad-text font-bold"></span><span class="caret"></span>
+      </p>
+      <p class="text-center text-cm-muted max-w-2xl mx-auto mt-4 reveal">
+        A 90-minute live workshop that turns "I should learn AI" into "I just did a day's work before lunch." No fluff. Six power skills. Live demos you copy on the spot.
+      </p>
+
+      <!-- trust strip -->
+      <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 mt-8 text-sm reveal">
+        <span class="flex items-center gap-2 text-cm-light"><span class="live-dot"></span> Live on <b class="text-white">5 July 2026</b></span>
+        <span class="text-cm-border">|</span>
+        <span class="flex items-center gap-2 text-cm-light">⭐️⭐️⭐️⭐️⭐️ <b class="text-white">4.9</b> from 500+ learners</span>
+        <span class="text-cm-border">|</span>
+        <span class="flex items-center gap-2 text-cm-light">🎟️ <b class="text-white" id="seatStrip">37</b> seats left</span>
+      </div>
+
+      <!-- countdown -->
+      <div class="flex items-center justify-center gap-3 mt-8 reveal" id="countdown">
+        <div class="cd-box text-center"><div class="cd-num text-2xl font-extrabold text-white" data-cd="d">--</div><div class="text-[10px] text-cm-muted uppercase tracking-wider mt-0.5">Days</div></div>
+        <div class="cd-box text-center"><div class="cd-num text-2xl font-extrabold text-white" data-cd="h">--</div><div class="text-[10px] text-cm-muted uppercase tracking-wider mt-0.5">Hrs</div></div>
+        <div class="cd-box text-center"><div class="cd-num text-2xl font-extrabold text-white" data-cd="m">--</div><div class="text-[10px] text-cm-muted uppercase tracking-wider mt-0.5">Min</div></div>
+        <div class="cd-box text-center"><div class="cd-num text-2xl font-extrabold text-white" data-cd="s">--</div><div class="text-[10px] text-cm-muted uppercase tracking-wider mt-0.5">Sec</div></div>
+      </div>
+
+      <!-- price + CTA -->
+      <div class="flex flex-col items-center mt-9 reveal">
+        <div class="flex items-end gap-3 mb-5">
+          <span class="text-cm-muted line-through text-xl">₹1,999</span>
+          <span class="price-glow grad-text text-5xl sm:text-6xl font-extrabold leading-none">₹999</span>
+          <span class="mb-1.5 text-xs font-bold px-2 py-1 rounded bg-cm-greenDim text-cm-green">SAVE ₹1,000</span>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+          <button onclick="pay()" class="cta-btn rounded-xl px-8 py-4 text-base flex items-center justify-center gap-2">
+            Secure My Seat — ₹999 <span>→</span>
+          </button>
+          <a href="#skills" class="cta-ghost rounded-xl px-7 py-4 text-base text-white font-semibold flex items-center justify-center gap-2">
+            See what's inside
+          </a>
+        </div>
+        <p class="text-xs text-cm-muted mt-4 flex items-center gap-1.5">🔒 256-bit SSL · Secure checkout · 100% money-back in the first hour</p>
+      </div>
+
+      <!-- tool marquee -->
+      <div class="mt-14 reveal">
+        <p class="text-center text-xs uppercase tracking-[0.2em] text-cm-muted mb-5">Beat every tool your competition is fumbling with</p>
+        <div class="logo-marquee">
+          <div class="logo-track" id="logoTrack"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================= THE REALITY (before/after) ======================= -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
+    <div class="text-center mb-12">
+      <p class="text-cm-coral font-mono text-xs uppercase tracking-[0.25em] mb-3 reveal">The Reality</p>
+      <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight reveal">Before Claude <span class="text-cm-muted">vs</span> After Claude</h2>
+      <p class="text-cm-muted mt-4 max-w-xl mx-auto reveal">Same work. Same you. The only variable is whether AI is doing the heavy lifting.</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 gap-4 sm:gap-6 max-w-4xl mx-auto" id="realityGrid"></div>
+  </section>
+
+  <div class="chart-divider"><svg viewBox="0 0 600 40" preserveAspectRatio="none"><path class="line-draw" d="M0,30 L120,30 L150,12 L200,24 L260,8 L320,26 L380,6 L440,22 L500,14 L600,18" fill="none" stroke="url(#g1)" stroke-width="2"/><defs><linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#D97757"/><stop offset="1" stop-color="#7C5CFF"/></linearGradient></defs></svg></div>
+
+  <!-- ======================= THE NUMBERS ======================= -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
+    <div class="text-center mb-12">
+      <p class="text-cm-coral font-mono text-xs uppercase tracking-[0.25em] mb-3 reveal">Why This Matters Now</p>
+      <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight reveal">The Numbers Don't Lie</h2>
+    </div>
+    <div class="grid sm:grid-cols-3 gap-5 max-w-4xl mx-auto">
+      <div class="tilt-card relative bg-cm-card border border-cm-border rounded-2xl p-8 text-center reveal">
+        <div class="tilt-shine"></div>
+        <div class="text-5xl font-extrabold grad-text"><span class="counter" data-to="3" data-suffix="×">0</span></div>
+        <p class="text-white font-semibold mt-3">Faster output</p>
+        <p class="text-cm-muted text-sm mt-1">AI users vs everyone still doing it by hand</p>
+      </div>
+      <div class="tilt-card relative bg-cm-card border border-cm-border rounded-2xl p-8 text-center reveal">
+        <div class="tilt-shine"></div>
+        <div class="text-5xl font-extrabold grad-text"><span class="counter" data-to="73" data-suffix="%">0</span></div>
+        <p class="text-white font-semibold mt-3">Of new job posts</p>
+        <p class="text-cm-muted text-sm mt-1">now ask for AI skills — explicitly</p>
+      </div>
+      <div class="tilt-card relative bg-cm-card border border-cm-border rounded-2xl p-8 text-center reveal">
+        <div class="tilt-shine"></div>
+        <div class="text-5xl font-extrabold grad-text">₹<span class="counter" data-to="8" data-suffix="L+">0</span></div>
+        <p class="text-white font-semibold mt-3">Average salary bump</p>
+        <p class="text-cm-muted text-sm mt-1">for AI-skilled professionals</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= 6 POWER SKILLS ======================= -->
+  <section id="skills" class="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-24 scroll-mt-20">
+    <div class="text-center mb-12">
+      <p class="text-cm-coral font-mono text-xs uppercase tracking-[0.25em] mb-3 reveal">The Curriculum</p>
+      <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight reveal">6 Power Skills in 90 Minutes</h2>
+      <p class="text-cm-muted mt-4 max-w-xl mx-auto reveal">Every one is a live demo. You don't watch — you build alongside.</p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5" id="skillsGrid"></div>
+  </section>
+
+  <!-- ======================= AGENDA (terminal) ======================= -->
+  <section id="agenda" class="max-w-4xl mx-auto px-4 sm:px-6 py-16 sm:py-24 scroll-mt-20">
+    <div class="text-center mb-12">
+      <p class="text-cm-coral font-mono text-xs uppercase tracking-[0.25em] mb-3 reveal">The Run Sheet</p>
+      <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight reveal">90 Minutes. Packed Perfectly.</h2>
+    </div>
+
+    <div class="bg-cm-card border border-cm-border rounded-2xl overflow-hidden reveal shadow-2xl">
+      <div class="terminal-header">
+        <span class="terminal-dot bg-cm-red"></span>
+        <span class="terminal-dot bg-yellow-400"></span>
+        <span class="terminal-dot bg-cm-green"></span>
+        <span class="ml-3 font-mono text-xs text-cm-muted">claude-masterclass · live-session.sh</span>
+      </div>
+      <div class="p-5 sm:p-7 font-mono text-sm space-y-1" id="agendaList"></div>
+    </div>
+  </section>
+
+  <!-- ======================= INCLUDED (order book) ======================= -->
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
+    <div class="text-center mb-12">
+      <p class="text-cm-coral font-mono text-xs uppercase tracking-[0.25em] mb-3 reveal">Your ₹999 Unlocks</p>
+      <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight reveal">Everything In The Box</h2>
+    </div>
+    <div class="bg-cm-card border border-cm-border rounded-2xl divide-y divide-cm-border reveal overflow-hidden" id="includedList"></div>
+  </section>
+
+  <!-- ======================= MENTORS ======================= -->
+  <section id="mentors" class="max-w-5xl mx-auto px-4 sm:px-6 py-16 sm:py-24 scroll-mt-20">
+    <div class="text-center mb-12">
+      <p class="text-cm-coral font-mono text-xs uppercase tracking-[0.25em] mb-3 reveal">Who's Teaching</p>
+      <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight reveal">Learn From People Who Ship</h2>
+    </div>
+    <div class="grid sm:grid-cols-2 gap-6">
+      <!-- Satish -->
+      <div class="tilt-card relative bg-cm-card border border-cm-border rounded-2xl p-7 reveal">
+        <div class="tilt-shine"></div>
+        <div class="flex items-center gap-4">
+          <img src="assets/img/instructor-0.jpg" alt="T. Satish" class="w-20 h-20 rounded-2xl object-cover border border-cm-borderLight" style="box-shadow:0 0 24px rgba(217,119,87,0.25)"/>
+          <div>
+            <h3 class="text-xl font-extrabold text-white">T. Satish</h3>
+            <p class="text-cm-coral text-sm font-medium">AI Mentor & IT Professional</p>
+          </div>
+        </div>
+        <p class="text-cm-muted text-sm mt-5 leading-relaxed">IT professional with 7+ years of hands-on industry experience. Has mentored hundreds of students and working professionals to upskill, land better roles, and build real careers in tech.</p>
+        <div class="grid grid-cols-3 gap-2 mt-6">
+          <div class="text-center bg-cm-bg2 rounded-xl py-3 border border-cm-border"><div class="text-lg font-extrabold grad-text">7+</div><div class="text-[11px] text-cm-muted">Yrs IT</div></div>
+          <div class="text-center bg-cm-bg2 rounded-xl py-3 border border-cm-border"><div class="text-lg font-extrabold grad-text">500+</div><div class="text-[11px] text-cm-muted">Students</div></div>
+          <div class="text-center bg-cm-bg2 rounded-xl py-3 border border-cm-border"><div class="text-lg font-extrabold grad-text">100%</div><div class="text-[11px] text-cm-muted">Practical</div></div>
+        </div>
+      </div>
+      <!-- Bobby -->
+      <div class="tilt-card relative bg-cm-card border border-cm-border rounded-2xl p-7 reveal">
+        <div class="tilt-shine"></div>
+        <div class="flex items-center gap-4">
+          <div class="w-20 h-20 rounded-2xl flex items-center justify-center text-3xl font-extrabold text-white border border-cm-borderLight" style="background:linear-gradient(135deg,#7C5CFF,#D97757);box-shadow:0 0 24px rgba(124,92,255,0.3)">B</div>
+          <div>
+            <h3 class="text-xl font-extrabold text-white">Bobby <span class="text-cm-muted text-sm font-normal">@mr.bobbyig</span></h3>
+            <p class="text-cm-coral text-sm font-medium">AI Content Creator & Community Host</p>
+          </div>
+        </div>
+        <p class="text-cm-muted text-sm mt-5 leading-relaxed">Builds a daily-AI following and runs an active learner community. Brings the "how do I actually use this today" energy — and keeps the WhatsApp group buzzing after the workshop ends.</p>
+        <div class="grid grid-cols-3 gap-2 mt-6">
+          <div class="text-center bg-cm-bg2 rounded-xl py-3 border border-cm-border"><div class="text-lg font-extrabold grad-text">43K</div><div class="text-[11px] text-cm-muted">Followers</div></div>
+          <div class="text-center bg-cm-bg2 rounded-xl py-3 border border-cm-border"><div class="text-lg font-extrabold grad-text">Daily</div><div class="text-[11px] text-cm-muted">AI Content</div></div>
+          <div class="text-center bg-cm-bg2 rounded-xl py-3 border border-cm-border"><div class="text-lg font-extrabold grad-text">Live</div><div class="text-[11px] text-cm-muted">Community</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= TESTIMONIALS ======================= -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
+    <div class="text-center mb-12">
+      <p class="text-cm-coral font-mono text-xs uppercase tracking-[0.25em] mb-3 reveal">Receipts</p>
+      <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight reveal">They Took The Seat. Here's What Happened.</h2>
+    </div>
+    <div class="grid sm:grid-cols-3 gap-5" id="testiGrid"></div>
+  </section>
+
+  <!-- ======================= OFFER / PRICING ======================= -->
+  <section class="max-w-3xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
+    <div class="relative rounded-3xl p-[1.5px] reveal" style="background:linear-gradient(135deg,#D97757,#7C5CFF)">
+      <div class="bg-cm-bg2 rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden">
+        <div class="absolute -top-20 -right-20 w-60 h-60 rounded-full" style="background:radial-gradient(circle,rgba(124,92,255,0.18),transparent 70%)"></div>
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold mb-6" style="background:rgba(217,119,87,0.12);border:1px solid rgba(217,119,87,0.3);color:#E89070">🔥 Early Bird ends when seats fill</div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">One Seat. One Skill Shift.<br/>One Afternoon.</h2>
+        <div class="flex items-end justify-center gap-3 mt-7">
+          <span class="text-cm-muted line-through text-2xl">₹1,999</span>
+          <span class="price-glow grad-text text-6xl font-extrabold leading-none">₹999</span>
+        </div>
+        <p class="text-cm-muted text-sm mt-2">One-time payment · lifetime recording access · no subscription</p>
+        <button onclick="pay()" class="cta-btn rounded-xl px-10 py-4 text-lg mt-8 w-full sm:w-auto inline-flex items-center justify-center gap-2">
+          Pay ₹999 Securely <span>→</span>
+        </button>
+        <p class="text-xs text-cm-muted mt-5">🔒 Secure checkout · UPI / Card / Netbanking · 100% refund in the first hour, no questions asked</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= FAQ ======================= -->
+  <section id="faq" class="max-w-3xl mx-auto px-4 sm:px-6 py-16 sm:py-24 scroll-mt-20">
+    <div class="text-center mb-12">
+      <p class="text-cm-coral font-mono text-xs uppercase tracking-[0.25em] mb-3 reveal">Still Thinking?</p>
+      <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight reveal">Questions, Answered</h2>
+    </div>
+    <div class="space-y-3" id="faqList"></div>
+  </section>
+
+  <!-- ======================= FINAL CTA ======================= -->
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 pb-24 text-center">
+    <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight reveal">The gap between you and an AI-fluent you<br class="hidden sm:block"/> is <span class="grad-text">90 minutes.</span></h2>
+    <p class="text-cm-muted mt-5 max-w-xl mx-auto reveal">5 July 2026. Live. Recorded. ₹999. The people who book today are the ones doing a day's work before lunch next week.</p>
+    <button onclick="pay()" class="cta-btn rounded-xl px-10 py-4 text-lg mt-8 inline-flex items-center gap-2 reveal">Book My Seat — ₹999 <span>→</span></button>
+  </section>
+
+  <!-- ======================= FOOTER ======================= -->
+  <footer class="border-t border-cm-border">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-cm-muted">
+      <div class="flex items-center gap-2.5">
+        <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:linear-gradient(135deg,#D97757,#7C5CFF)">🤖</div>
+        <span class="text-white font-bold">Claude Masterclass</span>
+      </div>
+      <div class="flex items-center gap-5">
+        <a href="#" class="hover:text-white transition">Privacy</a>
+        <a href="#" class="hover:text-white transition">Refund Policy</a>
+        <a href="#" class="hover:text-white transition">Contact</a>
+      </div>
+      <span>© 2026 Claude Masterclass · 🔒 Secure Checkout</span>
+    </div>
+  </footer>
+
+  <!-- ======================= MOBILE STICKY CTA ======================= -->
+  <div id="mobileCta" class="fixed bottom-0 inset-x-0 z-40 md:hidden p-3 hidden-bar" style="background:rgba(8,11,20,0.92);backdrop-filter:blur(14px);border-top:1px solid #1E2738">
+    <button onclick="pay()" class="cta-btn rounded-xl w-full py-3.5 text-base flex items-center justify-center gap-2">
+      Secure My Seat — ₹999 <span>→</span>
+    </button>
+  </div>
+
+  <script>
+  /* ====================== CONFIG ====================== */
+  const API_BASE = (() => {
+    const host = window.location.hostname;
+    if (host === 'localhost' || host === '127.0.0.1') return 'http://localhost:5000/api';
+    // Update this URL when you deploy the backend
+    return `${window.location.protocol}//${host.replace(/^www\./, '')}:5000/api`;
+  })();
+  let WEBINAR_ID = null;
+
+  /* ====================== DATA ====================== */
+  const ROTATOR = ['write a full report in 20 min','build a deck before lunch','clear your inbox in 10 min','draft your self-appraisal in 3 min','automate the boring 80%','turn a PDF into answers'];
+  const TOOLS = ['Claude','ChatGPT','Gemini','Copilot','Perplexity','Notion AI','Midjourney','Claude','ChatGPT','Gemini'];
+  const TICKER = [
+    ['⚡','3× faster output with AI'],['💼','73% of jobs now want AI skills'],['💰','₹8L+ average salary bump'],
+    ['🤖','6 power skills · 90 minutes'],['📅','Live · 5 July 2026'],['🎟️','Early bird ₹999 · 50% off'],
+    ['🔒','Razorpay secured'],['⭐','4.9 from 500+ learners']
+  ];
+  const REALITY = [
+    ['📝','Write a full report','3 hours','20 mins'],
+    ['📊','Build a presentation','2 hours','15 mins'],
+    ['🧾','Write self-appraisal','Half a day','3 mins'],
+    ['📥','Clear a messy inbox','90 mins','10 mins']
+  ];
+  const SKILLS = [
+    ['Advanced Prompting','Chain prompts, role prompts, iterative refining — get the output right on the first ask.', icoSpark()],
+    ['File & Document Mastery','Drop in a PDF, Excel or Word file and pull out exactly what you need in seconds.', icoDoc()],
+    ['Claude Projects','Persistent context tuned to your exact job role, so Claude already knows your world.', icoLayers()],
+    ['Computer Use (Beta)','Watch Claude control your actual screen — clicking, typing, doing the work live.', icoCursor()],
+    ['MCP — Gmail & Drive','Wire Claude into your email and files so it acts, not just answers.', icoPlug()],
+    ['Artifacts & Dashboards','Build interactive tools and dashboards from a single sentence — no code.', icoChart()]
+  ];
+  const AGENDA = [
+    ['0–10','Why Claude is Different','warmup'],
+    ['10–25','File & Document Mastery — Live Demo','demo'],
+    ['25–35','Advanced Prompting Techniques','core'],
+    ['35–55','Computer Use — Live Demo','demo'],
+    ['55–70','MCP: Gmail + Calendar — Live Demo','demo'],
+    ['70–80','You Practice Live','hands-on'],
+    ['80–90','Q&A + What\'s Next','wrap']
+  ];
+  const INCLUDED = [
+    ['🎥','90-Min Live Workshop','Full session with live demos + open Q&A','₹1,999'],
+    ['📼','Lifetime Recording Access','Rewatch every demo, forever','₹999'],
+    ['🧠','50+ Prompt Templates Pack','Copy-paste prompts for real work','₹1,499'],
+    ['📜','Completion Certificate','Add it to LinkedIn the same day','₹499'],
+    ['💬','Private Community Access','WhatsApp group of AI-doers','₹999'],
+    ['🛡️','100% Satisfaction Guarantee','Full refund in the first hour','Priceless']
+  ];
+  const TESTI = [
+    ['Ravi Kumar','Software Engineer','RK','I had zero AI experience. This cut my daily task time by 60% — and I actually use it every single day now.'],
+    ['Priya Patel','Freelancer','PP','I earned ₹15,000 in my very first month applying what they taught. Best ₹999 I have ever spent.'],
+    ['Arjun Mehta','Marketing Manager','AM','The prompt templates alone are worth 10× the price. My whole team runs on them now.']
+  ];
+  const FAQ = [
+    ['Do I need prior AI experience?','None at all. We start from "what is a prompt" and have you doing real work by the end. Total beginners finish the most impressed.'],
+    ['Is it live or recorded?','Both. You join live on 5 July 2026 for the demos and Q&A, and you keep the full recording to rewatch anytime.'],
+    ['What equipment do I need?','A laptop or phone and an internet connection. That is genuinely it.'],
+    ['Will I get a certificate?','Yes — a completion certificate you can put on LinkedIn the same day.'],
+    ['Are there any hidden costs?','No. ₹999 is everything — workshop, recording, templates, certificate and community. No upsell wall.'],
+    ['What if it is not for me?','100% refund within the first hour of the workshop, no questions asked. The risk is entirely on us.']
+  ];
+
+  /* ====================== ICONS ====================== */
+  function ico(p){return `<svg viewBox="0 0 24 24" fill="none" stroke="url(#ig)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><defs><linearGradient id="ig" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#E89070"/><stop offset="1" stop-color="#9D7BFF"/></linearGradient></defs>${p}</svg>`}
+  function icoSpark(){return ico('<path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/>')}
+  function icoDoc(){return ico('<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/>')}
+  function icoLayers(){return ico('<path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/>')}
+  function icoCursor(){return ico('<path d="M4 4l7 16 2-7 7-2L4 4z"/>')}
+  function icoPlug(){return ico('<path d="M9 3v5M15 3v5M6 8h12v3a6 6 0 0 1-12 0V8zM12 17v4"/>')}
+  function icoChart(){return ico('<path d="M3 3v18h18M7 15l3-4 3 2 4-6"/>')}
+
+  /* ====================== BUILD DOM ====================== */
+  const $ = s => document.querySelector(s);
+
+  // ticker (doubled for seamless loop)
+  $('#ticker').innerHTML = [...TICKER,...TICKER].map(([e,t])=>`<span class="ticker-item"><span>${e}</span><span class="text-cm-light">${t}</span><span class="text-cm-border">·</span></span>`).join('');
+
+  // logo marquee
+  $('#logoTrack').innerHTML = [...TOOLS,...TOOLS].map(t=>`<span class="text-cm-muted/70 font-bold text-lg tracking-tight" style="opacity:.55">${t}</span>`).join('');
+
+  // reality grid
+  $('#realityGrid').innerHTML = REALITY.map(([e,task,before,after])=>`
+    <div class="reveal bg-cm-card border border-cm-border rounded-2xl p-5 flex items-center gap-4">
+      <div class="text-2xl">${e}</div>
+      <div class="flex-1">
+        <div class="text-white font-semibold text-sm">${task}</div>
+        <div class="flex items-center gap-3 mt-2 font-mono text-sm">
+          <span class="text-cm-red/90 line-through" style="color:#f87171">${before}</span>
+          <span class="text-cm-muted">→</span>
+          <span class="text-cm-green font-bold">${after}</span>
+        </div>
+      </div>
+    </div>`).join('');
+
+  // skills grid
+  $('#skillsGrid').innerHTML = SKILLS.map(([t,d,icon],i)=>`
+    <div class="tilt-card relative bg-cm-card border border-cm-border rounded-2xl p-6 reveal">
+      <div class="tilt-shine"></div>
+      <div class="flex items-center gap-3 mb-4">
+        <div class="skill-icon">${icon}</div>
+        <span class="font-mono text-xs text-cm-muted">0${i+1}</span>
+      </div>
+      <h3 class="text-white font-extrabold text-lg">${t}</h3>
+      <p class="text-cm-muted text-sm mt-2 leading-relaxed">${d}</p>
+    </div>`).join('');
+
+  // agenda
+  const TAG = {warmup:'#7C5CFF',demo:'#D97757',core:'#22D3EE','hands-on':'#22C55E',wrap:'#64748B'};
+  $('#agendaList').innerHTML = AGENDA.map(([t,label,tag])=>`
+    <div class="flex items-center gap-3 py-2 group">
+      <span class="text-cm-muted w-14 shrink-0">${t}<span class="text-cm-border">m</span></span>
+      <span class="w-2 h-2 rounded-full shrink-0" style="background:${TAG[tag]}"></span>
+      <span class="text-cm-light group-hover:text-white transition flex-1">${label}</span>
+      <span class="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full hidden sm:inline" style="color:${TAG[tag]};background:${TAG[tag]}1a">${tag}</span>
+    </div>`).join('');
+
+  // included
+  $('#includedList').innerHTML = INCLUDED.map(([e,t,d,val])=>`
+    <div class="offer-row flex items-center gap-4 px-5 sm:px-6 py-4">
+      <div class="text-xl">${e}</div>
+      <div class="flex-1">
+        <div class="text-white font-semibold text-sm flex items-center gap-2"><span class="text-cm-green">✓</span> ${t}</div>
+        <div class="text-cm-muted text-xs mt-0.5">${d}</div>
+      </div>
+      <div class="text-right shrink-0"><span class="font-mono text-xs text-cm-muted line-through">${val}</span></div>
+    </div>`).join('') + `
+    <div class="flex items-center justify-between px-5 sm:px-6 py-5 bg-cm-bg2">
+      <span class="text-white font-bold">Total real value</span>
+      <span class="font-mono"><span class="text-cm-muted line-through mr-3">₹6,494</span><span class="grad-text font-extrabold text-xl">₹999</span></span>
+    </div>`;
+
+  // testimonials
+  $('#testiGrid').innerHTML = TESTI.map(([n,role,init,q])=>`
+    <div class="tilt-card relative bg-cm-card border border-cm-border rounded-2xl p-6 reveal">
+      <div class="tilt-shine"></div>
+      <div class="text-cm-coral text-2xl leading-none mb-3">"</div>
+      <p class="text-cm-light text-sm leading-relaxed">${q}</p>
+      <div class="flex items-center gap-3 mt-5 pt-5 border-t border-cm-border">
+        <div class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold text-white" style="background:linear-gradient(135deg,#D97757,#7C5CFF)">${init}</div>
+        <div><div class="text-white font-semibold text-sm">${n}</div><div class="text-cm-muted text-xs">${role}</div></div>
+        <div class="ml-auto text-xs">⭐️⭐️⭐️⭐️⭐️</div>
+      </div>
+    </div>`).join('');
+
+  // faq
+  $('#faqList').innerHTML = FAQ.map(([q,a])=>`
+    <details class="faq-item bg-cm-card border border-cm-border rounded-2xl reveal">
+      <summary class="flex items-center justify-between gap-4 px-5 sm:px-6 py-4">
+        <span class="text-white font-semibold text-sm sm:text-base">${q}</span>
+        <svg class="faq-chevron shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D97757" stroke-width="2.2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+      </summary>
+      <div class="px-5 sm:px-6 pb-5 text-cm-muted text-sm leading-relaxed">${a}</div>
+    </details>`).join('');
+
+  /* ====================== INTERACTIONS ====================== */
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) document.body.classList.add('reduced');
+
+  // wrap words for text-reveal, preserving <br> and inline spans
+  document.querySelectorAll('.text-reveal').forEach(el=>{
+    let idx=0;
+    const wrap=node=>{
+      [...node.childNodes].forEach(ch=>{
+        if(ch.nodeType===3){ // text
+          const frag=document.createDocumentFragment();
+          ch.textContent.split(/(\s+)/).forEach(tok=>{
+            if(/^\s+$/.test(tok)||tok===''){ frag.appendChild(document.createTextNode(tok)); }
+            else { const s=document.createElement('span'); s.className='word'; s.textContent=tok; s.style.transitionDelay=(idx++*0.05)+'s'; frag.appendChild(s); }
+          });
+          node.replaceChild(frag,ch);
+        } else if(ch.nodeName==='SPAN'){ ch.classList.add('word'); ch.style.transitionDelay=(idx++*0.05)+'s'; }
+      });
+    };
+    wrap(el);
+  });
+
+  // cursor spotlight
+  const spot = $('#spotlight');
+  if (!reduced) {
+    window.addEventListener('pointermove', e=>{ spot.style.left=e.clientX+'px'; spot.style.top=e.clientY+'px'; });
+    window.addEventListener('pointerdown', ()=> spot.style.opacity='1');
+  } else spot.style.display='none';
+
+  // nav + mobile cta on scroll
+  const nav=$('#nav'), mcta=$('#mobileCta');
+  window.addEventListener('scroll', ()=>{
+    const y=scrollY;
+    nav.classList.toggle('scrolled', y>20);
+    mcta.classList.toggle('hidden-bar', y<560);
+  });
+
+  // rotator
+  let ri=0; const rot=$('#rotator');
+  function rotate(){ rot.textContent=ROTATOR[ri]; ri=(ri+1)%ROTATOR.length; }
+  rotate(); if(!reduced) setInterval(rotate, 2200);
+
+  // scroll reveal + counters + divider
+  const io=new IntersectionObserver((es)=>{
+    es.forEach(en=>{
+      if(!en.isIntersecting) return;
+      en.target.classList.add('visible');
+      if(en.target.classList.contains('counter')) runCounter(en.target);
+      io.unobserve(en.target);
+    });
+  },{threshold:0.15});
+  document.querySelectorAll('.reveal,.reveal-left,.text-reveal,.chart-divider,.counter').forEach(el=>io.observe(el));
+
+  function runCounter(el){
+    const to=+el.dataset.to, suf=el.dataset.suffix||''; const dur=1100; const t0=performance.now();
+    if(reduced){ el.textContent=to+suf; return; }
+    function step(t){ const p=Math.min(1,(t-t0)/dur); const e=1-Math.pow(1-p,3); el.textContent=Math.round(to*e)+suf; if(p<1) requestAnimationFrame(step); }
+    requestAnimationFrame(step);
+  }
+
+  // faq ripple
+  document.querySelectorAll('details summary').forEach(s=>{
+    s.addEventListener('click', e=>{
+      const r=document.createElement('span'); r.className='ripple';
+      const rect=s.getBoundingClientRect(); const d=Math.max(rect.width,rect.height);
+      r.style.width=r.style.height=d+'px'; r.style.left=(e.clientX-rect.left-d/2)+'px'; r.style.top=(e.clientY-rect.top-d/2)+'px';
+      s.appendChild(r); setTimeout(()=>r.remove(),600);
+    });
+  });
+
+  // tilt cards
+  if(!reduced) document.querySelectorAll('.tilt-card').forEach(card=>{
+    card.addEventListener('pointermove', e=>{
+      const r=card.getBoundingClientRect(); const px=(e.clientX-r.left)/r.width, py=(e.clientY-r.top)/r.height;
+      card.style.transform=`perspective(800px) rotateY(${(px-0.5)*7}deg) rotateX(${(0.5-py)*7}deg) translateY(-3px)`;
+      card.style.setProperty('--shine-x',px*100+'%'); card.style.setProperty('--shine-y',py*100+'%');
+    });
+    card.addEventListener('pointerleave', ()=> card.style.transform='');
+  });
+
+  // seat counter drift (social proof)
+  let seats=37; const seatEl=$('#seatStrip');
+  if(!reduced) setInterval(()=>{ if(seats>12 && Math.random()<0.4){ seats--; seatEl.textContent=seats; seatEl.animate([{color:'#E89070'},{color:'#fff'}],{duration:800}); } }, 9000);
+
+  // countdown to 5 July 2026 10:00 IST
+  const target=new Date('2026-07-05T10:00:00+05:30').getTime();
+  function tick(){
+    let diff=Math.max(0,target-Date.now());
+    const d=Math.floor(diff/864e5); diff-=d*864e5;
+    const h=Math.floor(diff/36e5); diff-=h*36e5;
+    const m=Math.floor(diff/6e4); diff-=m*6e4;
+    const s=Math.floor(diff/1e3);
+    const set=(k,v)=>{const el=document.querySelector(`[data-cd="${k}"]`); if(el) el.textContent=String(v).padStart(2,'0');};
+    set('d',d);set('h',h);set('m',m);set('s',s);
+  }
+  tick(); setInterval(tick,1000);
+
+  /* ====================== NEURAL CANVAS ====================== */
+  (function(){
+    const c=$('#neuralCanvas'); if(!c) return; const ctx=c.getContext('2d');
+    let w,h,nodes,raf; const DPR=Math.min(2,window.devicePixelRatio||1);
+    function size(){ const host=c.parentElement; w=host.offsetWidth; h=host.offsetHeight; c.width=w*DPR; c.height=h*DPR; c.style.width=w+'px'; c.style.height=h+'px'; ctx.setTransform(DPR,0,0,DPR,0,0); init(); }
+    function init(){ const n=Math.min(64, Math.floor(w*h/16000)); nodes=Array.from({length:n},()=>({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-0.5)*0.35,vy:(Math.random()-0.5)*0.35,r:Math.random()*1.6+0.6})); }
+    function draw(){
+      ctx.clearRect(0,0,w,h);
+      for(let i=0;i<nodes.length;i++){
+        const a=nodes[i]; a.x+=a.vx; a.y+=a.vy;
+        if(a.x<0||a.x>w)a.vx*=-1; if(a.y<0||a.y>h)a.vy*=-1;
+        for(let j=i+1;j<nodes.length;j++){
+          const b=nodes[j], dx=a.x-b.x, dy=a.y-b.y, dist=Math.hypot(dx,dy);
+          if(dist<118){ const o=(1-dist/118)*0.5; const g=ctx.createLinearGradient(a.x,a.y,b.x,b.y); g.addColorStop(0,`rgba(217,119,87,${o})`); g.addColorStop(1,`rgba(124,92,255,${o})`); ctx.strokeStyle=g; ctx.lineWidth=0.7; ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke(); }
+        }
+      }
+      for(const a of nodes){ ctx.beginPath(); ctx.arc(a.x,a.y,a.r,0,7); ctx.fillStyle='rgba(232,144,112,0.85)'; ctx.fill(); }
+      raf=requestAnimationFrame(draw);
+    }
+    if(!reduced){ size(); draw(); window.addEventListener('resize',()=>{cancelAnimationFrame(raf); size(); draw();}); }
+    else { size(); ctx.globalAlpha=0.5; for(const a of (nodes||[])){} }
+  })();
+
+  /* ====================== PAYMENT & BOOKING ====================== */
+  async function initWebinar() {
+    try {
+      const res = await fetch(`${API_BASE}/webinars?activeOnly=true`);
+      const json = await res.json();
+      if (json.success && json.data.webinars?.length) {
+        const match = json.data.webinars.find(w => w.title.toLowerCase().includes('claude'));
+        WEBINAR_ID = (match || json.data.webinars[0])._id;
+      }
+    } catch (e) {
+      console.warn('Could not load webinar from backend:', e.message);
+    }
+  }
+  initWebinar();
+
+  function closeModal() {
+    const m = document.getElementById('cmModal');
+    if (m) m.remove();
+  }
+
+  function showModal(html) {
+    closeModal();
+    document.body.insertAdjacentHTML('beforeend', `
+      <div id="cmModal" class="cm-modal-overlay" onclick="if(event.target===this)closeModal()">
+        <div class="cm-modal" onclick="event.stopPropagation()">${html}</div>
+      </div>`);
+  }
+
+  function showError(msg) {
+    const el = document.getElementById('formError');
+    if (el) {
+      el.textContent = msg;
+      el.style.display = msg ? 'block' : 'none';
+    }
+  }
+
+  /* ====================== BOOKING FORM ====================== */
+  const INDIAN_STATES = [
+    'Andhra Pradesh','Arunachal Pradesh','Assam','Bihar','Chhattisgarh','Goa','Gujarat','Haryana',
+    'Himachal Pradesh','Jharkhand','Karnataka','Kerala','Madhya Pradesh','Maharashtra','Manipur',
+    'Meghalaya','Mizoram','Nagaland','Odisha','Punjab','Rajasthan','Sikkim','Tamil Nadu','Telangana',
+    'Tripura','Uttar Pradesh','Uttarakhand','West Bengal','Andaman and Nicobar Islands','Chandigarh',
+    'Dadra and Nagar Haveli and Daman and Diu','Delhi','Jammu and Kashmir','Ladakh','Lakshadweep','Puducherry'
+  ];
+
+  const INDIAN_CITIES = {
+    'Andhra Pradesh': ['Visakhapatnam','Vijayawada','Guntur','Nellore','Kurnool','Tirupati','Kakinada','Rajahmundry','Kadapa','Anantapur'],
+    'Arunachal Pradesh': ['Itanagar','Tawang','Pasighat','Ziro','Bomdila','Tezu','Roing'],
+    'Assam': ['Guwahati','Silchar','Dibrugarh','Jorhat','Nagaon','Tinsukia','Tezpur','Karimganj','Sivasagar','Dhubri'],
+    'Bihar': ['Patna','Gaya','Muzaffarpur','Bhagalpur','Darbhanga','Purnia','Arrah','Begusarai','Katihar','Munger'],
+    'Chhattisgarh': ['Raipur','Bhilai','Bilaspur','Korba','Durg','Rajnandgaon','Jagdalpur','Raigarh','Ambikapur'],
+    'Goa': ['Panaji','Margao','Vasco da Gama','Mapusa','Ponda','Bicholim'],
+    'Gujarat': ['Ahmedabad','Surat','Vadodara','Rajkot','Bhavnagar','Jamnagar','Gandhinagar','Junagadh','Anand','Nadiad'],
+    'Haryana': ['Faridabad','Gurgaon','Panipat','Ambala','Yamunanagar','Rohtak','Hisar','Karnal','Sonipat','Panchkula'],
+    'Himachal Pradesh': ['Shimla','Dharamshala','Solan','Mandi','Kullu','Manali','Bilaspur','Hamirpur','Una'],
+    'Jharkhand': ['Ranchi','Jamshedpur','Dhanbad','Bokaro','Deoghar','Hazaribagh','Giridih','Ramgarh','Phusro'],
+    'Karnataka': ['Bengaluru','Mysuru','Mangaluru','Hubballi','Belagavi','Davanagere','Ballari','Tumakuru','Shivamogga','Raichur'],
+    'Kerala': ['Thiruvananthapuram','Kochi','Kozhikode','Thrissur','Kollam','Alappuzha','Palakkad','Malappuram','Kannur','Kasaragod'],
+    'Madhya Pradesh': ['Bhopal','Indore','Jabalpur','Gwalior','Ujjain','Sagar','Dewas','Satna','Ratlam','Rewa'],
+    'Maharashtra': ['Mumbai','Pune','Nagpur','Thane','Nashik','Aurangabad','Solapur','Kolhapur','Amravati','Navi Mumbai'],
+    'Manipur': ['Imphal','Thoubal','Bishnupur','Churachandpur','Ukhrul','Senapati'],
+    'Meghalaya': ['Shillong','Tura','Jowai','Nongstoin','Baghmara','Williamnagar'],
+    'Mizoram': ['Aizawl','Lunglei','Champhai','Serchhip','Kolasib'],
+    'Nagaland': ['Kohima','Dimapur','Mokokchung','Tuensang','Wokha','Mon'],
+    'Odisha': ['Bhubaneswar','Cuttack','Rourkela','Berhampur','Sambalpur','Puri','Balasore','Bhadrak','Baripada'],
+    'Punjab': ['Ludhiana','Amritsar','Jalandhar','Patiala','Bathinda','Mohali','Pathankot','Hoshiarpur','Moga','Batala'],
+    'Rajasthan': ['Jaipur','Jodhpur','Udaipur','Kota','Bikaner','Ajmer','Bhilwara','Alwar','Sikar','Pali'],
+    'Sikkim': ['Gangtok','Namchi','Gyalshing','Mangan','Rangpo'],
+    'Tamil Nadu': ['Chennai','Coimbatore','Madurai','Tiruchirappalli','Salem','Tirunelveli','Tiruppur','Erode','Vellore','Thoothukudi'],
+    'Telangana': ['Hyderabad','Warangal','Nizamabad','Karimnagar','Khammam','Ramagundam','Mahbubnagar','Nalgonda','Adilabad'],
+    'Tripura': ['Agartala','Udaipur','Dharmanagar','Kailashahar','Belonia'],
+    'Uttar Pradesh': ['Lucknow','Kanpur','Ghaziabad','Agra','Varanasi','Meerut','Prayagraj','Bareilly','Aligarh','Moradabad'],
+    'Uttarakhand': ['Dehradun','Haridwar','Roorkee','Haldwani','Rudrapur','Kashipur','Rishikesh','Nainital','Almora'],
+    'West Bengal': ['Kolkata','Howrah','Durgapur','Asansol','Siliguri','Bardhaman','Malda','Kharagpur','Haldia','Darjeeling'],
+    'Andaman and Nicobar Islands': ['Port Blair','Diglipur','Rangat','Mayabunder'],
+    'Chandigarh': ['Chandigarh'],
+    'Dadra and Nagar Haveli and Daman and Diu': ['Daman','Diu','Silvassa'],
+    'Delhi': ['New Delhi','Delhi','Dwarka','Rohini','Saket','Karol Bagh'],
+    'Jammu and Kashmir': ['Srinagar','Jammu','Anantnag','Baramulla','Udhampur','Kathua','Sopore'],
+    'Ladakh': ['Leh','Kargil'],
+    'Lakshadweep': ['Kavaratti','Agatti','Minicoy'],
+    'Puducherry': ['Puducherry','Karaikal','Mahe','Yanam']
+  };
+
+  const EMAIL_RE = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z]{2,})+$/;
+  const PHONE_RE = /^[6-9]\d{9}$/;
+
+  function normalizePhone(value) {
+    const digits = value.replace(/\D/g, '');
+    if (digits.length === 12 && digits.startsWith('91')) return digits.slice(2);
+    if (digits.length === 10) return digits;
+    return digits;
+  }
+
+  function setFieldError(id, msg) {
+    const el = document.getElementById(id);
+    if (el) el.textContent = msg || '';
+    const input = el?.closest('.cm-field')?.querySelector('input:not([type=hidden])');
+    if (input) input.classList.toggle('invalid', !!msg);
+  }
+
+  function clearFormErrors() {
+    ['errFirstName','errLastName','errEmail','errPhone','errState','errCity'].forEach(id => setFieldError(id, ''));
+    showError('');
+  }
+
+  function validateBookingForm(details) {
+    let valid = true;
+    const firstName = details.firstName?.trim() || '';
+    const lastName = details.lastName?.trim() || '';
+    const email = details.email?.trim() || '';
+    const phone = normalizePhone(details.phone || '');
+    const state = details.state?.trim() || '';
+    const city = details.city?.trim() || '';
+
+    if (!firstName || firstName.length < 2) {
+      setFieldError('errFirstName', 'Enter a valid first name');
+      valid = false;
+    } else setFieldError('errFirstName', '');
+
+    if (!lastName || lastName.length < 1) {
+      setFieldError('errLastName', 'Enter a valid last name');
+      valid = false;
+    } else setFieldError('errLastName', '');
+
+    if (!email || !EMAIL_RE.test(email)) {
+      setFieldError('errEmail', 'Enter a valid email address');
+      valid = false;
+    } else setFieldError('errEmail', '');
+
+    if (!PHONE_RE.test(phone)) {
+      setFieldError('errPhone', 'Enter a valid 10-digit Indian mobile number');
+      valid = false;
+    } else setFieldError('errPhone', '');
+
+    if (!state || !INDIAN_STATES.includes(state)) {
+      setFieldError('errState', 'Select a state from the list');
+      valid = false;
+    } else setFieldError('errState', '');
+
+    const cities = INDIAN_CITIES[state] || [];
+    if (!city || !cities.includes(city)) {
+      setFieldError('errCity', state ? 'Select a city from the list' : 'Select a state first');
+      valid = false;
+    } else setFieldError('errCity', '');
+
+    return valid ? {
+      firstName, lastName, fullName: `${firstName} ${lastName}`.trim(),
+      email, phone: phone, state, city,
+      country: details.country?.trim() || 'India',
+    } : null;
+  }
+
+  function createCombobox({ inputId, hiddenId, listId, options: initial = [], placeholder, onChange }) {
+    const input = document.getElementById(inputId);
+    const hidden = document.getElementById(hiddenId);
+    const list = document.getElementById(listId);
+    const wrap = input?.closest('.cm-combobox');
+    if (!input || !hidden || !list || !wrap) return null;
+
+    let options = [...initial];
+    let activeIdx = -1;
+
+    const render = (query = '') => {
+      const q = query.trim().toLowerCase();
+      const filtered = options.filter(o => o.toLowerCase().includes(q));
+      activeIdx = -1;
+      list.innerHTML = filtered.length
+        ? filtered.map((o, i) => `<li class="cm-combobox-option" data-value="${o}" data-idx="${i}">${o}</li>`).join('')
+        : '<li class="cm-combobox-empty">No matches found</li>';
+    };
+
+    const select = (value) => {
+      hidden.value = value;
+      input.value = value;
+      input.classList.remove('invalid');
+      wrap.classList.remove('open');
+      onChange?.(value);
+    };
+
+    input.placeholder = placeholder;
+    input.addEventListener('focus', () => { render(input.value); wrap.classList.add('open'); });
+    input.addEventListener('input', () => { hidden.value = ''; render(input.value); wrap.classList.add('open'); });
+    input.addEventListener('keydown', (e) => {
+      const items = [...list.querySelectorAll('.cm-combobox-option')];
+      if (!items.length) return;
+      if (e.key === 'ArrowDown') { e.preventDefault(); activeIdx = Math.min(activeIdx + 1, items.length - 1); }
+      else if (e.key === 'ArrowUp') { e.preventDefault(); activeIdx = Math.max(activeIdx - 1, 0); }
+      else if (e.key === 'Enter' && activeIdx >= 0) { e.preventDefault(); select(items[activeIdx].dataset.value); return; }
+      else if (e.key === 'Escape') { wrap.classList.remove('open'); return; }
+      else return;
+      items.forEach((el, i) => el.classList.toggle('active', i === activeIdx));
+    });
+    list.addEventListener('mousedown', (e) => {
+      const opt = e.target.closest('.cm-combobox-option');
+      if (opt) { e.preventDefault(); select(opt.dataset.value); }
+    });
+    document.addEventListener('click', (e) => {
+      if (!wrap.contains(e.target)) wrap.classList.remove('open');
+    });
+
+    return {
+      setOptions(newOptions, newPlaceholder) {
+        options = [...newOptions];
+        input.value = '';
+        hidden.value = '';
+        if (newPlaceholder) input.placeholder = newPlaceholder;
+        render('');
+      },
+      setDisabled(disabled) {
+        input.disabled = disabled;
+      },
+    };
+  }
+
+  let cityCombobox = null;
+
+  function initBookingForm() {
+    createCombobox({
+      inputId: 'stateInput', hiddenId: 'stateHidden', listId: 'stateList',
+      options: INDIAN_STATES, placeholder: 'Search state…',
+      onChange: (state) => {
+        cityCombobox?.setOptions(INDIAN_CITIES[state] || [], 'Search city…');
+        cityCombobox?.setDisabled(!state);
+      },
+    });
+
+    cityCombobox = createCombobox({
+      inputId: 'cityInput', hiddenId: 'cityHidden', listId: 'cityList',
+      options: [], placeholder: 'Select state first',
+    });
+    cityCombobox?.setDisabled(true);
+
+    document.getElementById('phoneInput')?.addEventListener('input', (e) => {
+      e.target.value = e.target.value.replace(/\D/g, '').slice(0, 10);
+    });
+  }
+
+  function parseApiError(json) {
+    if (json?.errors?.length) return json.errors.map(e => e.message).join('. ');
+    return json?.message || 'Something went wrong. Please try again.';
+  }
+
+  function resetPayButton(btn) {
+    if (!btn) return;
+    btn.disabled = false;
+    btn.innerHTML = 'Proceed to Pay ₹999 <span>→</span>';
+  }
+
+  async function pay() {
+    if (!WEBINAR_ID) await initWebinar();
+    if (!WEBINAR_ID) {
+      showModal(`
+        <div class="cm-modal-header">
+          <div style="font-size:36px;margin-bottom:8px">⚠️</div>
+          <h3 style="color:#fff;font-size:21px;font-weight:800;margin:0">Unable to load workshop</h3>
+          <p style="color:#94a3b8;font-size:14px;margin:12px 0 0">Please check that the backend is running and try again.</p>
+        </div>
+        <div class="cm-modal-body" style="padding-top:12px">
+          <button onclick="closeModal()" class="cta-btn rounded-xl w-full py-3.5 text-base">Close</button>
+        </div>`);
+      return;
+    }
+
+    showModal(`
+      <div class="cm-modal-header">
+        <div style="font-size:36px;margin-bottom:8px">🎟️</div>
+        <h3 style="color:#fff;font-size:21px;font-weight:800;margin:0">Book your seat</h3>
+        <p style="color:#94a3b8;font-size:14px;margin:8px 0 0">Fill in your details to proceed to secure payment</p>
+        <div style="margin-top:14px;display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:rgba(217,119,87,0.1);border:1px solid rgba(217,119,87,0.25)">
+          <span style="color:#64748B;font-size:13px;text-decoration:line-through">₹1,999</span>
+          <span class="grad-text" style="font-size:18px;font-weight:800">₹999</span>
+        </div>
+      </div>
+      <form class="cm-modal-body" id="bookingForm" onsubmit="submitBooking(event)" novalidate>
+        <div class="grid grid-cols-2 gap-3">
+          <div class="cm-field" style="margin-bottom:0">
+            <label>First name *</label>
+            <input type="text" id="firstName" name="firstName" required placeholder="First name" autocomplete="given-name" />
+            <p class="cm-field-error" id="errFirstName"></p>
+          </div>
+          <div class="cm-field" style="margin-bottom:0">
+            <label>Last name *</label>
+            <input type="text" id="lastName" name="lastName" required placeholder="Last name" autocomplete="family-name" />
+            <p class="cm-field-error" id="errLastName"></p>
+          </div>
+        </div>
+        <div class="cm-field" style="margin-top:14px">
+          <label>Email *</label>
+          <input type="email" id="emailInput" name="email" required placeholder="you@email.com" autocomplete="email" />
+          <p class="cm-field-error" id="errEmail"></p>
+        </div>
+        <div class="cm-field">
+          <label>Mobile number *</label>
+          <div class="cm-phone-wrap">
+            <span class="cm-phone-prefix">+91</span>
+            <input type="tel" id="phoneInput" name="phone" required placeholder="98765 43210" inputmode="numeric" maxlength="10" autocomplete="tel" />
+          </div>
+          <p class="cm-field-error" id="errPhone"></p>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div class="cm-field cm-combobox" style="margin-bottom:0">
+            <label>State *</label>
+            <input type="text" id="stateInput" class="cm-combobox-input" autocomplete="off" />
+            <input type="hidden" id="stateHidden" name="state" />
+            <ul class="cm-combobox-list" id="stateList"></ul>
+            <p class="cm-field-error" id="errState"></p>
+          </div>
+          <div class="cm-field cm-combobox" style="margin-bottom:0">
+            <label>City *</label>
+            <input type="text" id="cityInput" class="cm-combobox-input" autocomplete="off" disabled />
+            <input type="hidden" id="cityHidden" name="city" />
+            <ul class="cm-combobox-list" id="cityList"></ul>
+            <p class="cm-field-error" id="errCity"></p>
+          </div>
+        </div>
+        <input type="hidden" name="country" value="India" />
+        <p id="formError" class="cm-error" style="display:none;margin-bottom:10px"></p>
+        <button type="submit" id="payBtn" class="cta-btn rounded-xl w-full py-3.5 text-base flex items-center justify-center gap-2 mt-2">
+          Proceed to Pay ₹999 <span>→</span>
+        </button>
+        <p style="text-align:center;color:#64748B;font-size:11px;margin-top:12px">🔒 Secured by Razorpay · UPI / Card / Netbanking</p>
+      </form>`);
+    initBookingForm();
+  }
+
+  async function submitBooking(e) {
+    e.preventDefault();
+    const btn = document.getElementById('payBtn');
+    const form = document.getElementById('bookingForm');
+    const fd = new FormData(form);
+    const raw = Object.fromEntries(fd.entries());
+    clearFormErrors();
+
+    const details = validateBookingForm(raw);
+    if (!details) return;
+
+    if (!WEBINAR_ID) {
+      showError('Workshop not available right now. Please try again in a moment.');
+      await initWebinar();
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Creating order…';
+
+    try {
+      const orderRes = await fetch(`${API_BASE}/payments/create-order`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          webinarId: WEBINAR_ID,
+          fullName: details.fullName,
+          email: details.email,
+          phone: details.phone,
+        }),
+      });
+      const orderJson = await orderRes.json();
+      if (!orderRes.ok || !orderJson.success) {
+        throw new Error(parseApiError(orderJson));
+      }
+
+      const { orderId, amount, currency, keyId, webinar } = orderJson.data;
+      if (!orderId || !keyId) throw new Error('Invalid payment response from server');
+
+      btn.textContent = 'Opening payment…';
+
+      const rzp = new Razorpay({
+        key: keyId,
+        amount,
+        currency,
+        name: 'Claude Masterclass',
+        description: webinar.title,
+        order_id: orderId,
+        prefill: {
+          name: details.fullName,
+          email: details.email,
+          contact: `+91${details.phone}`,
+        },
+        theme: { color: '#D97757' },
+        handler: async (response) => {
+          btn.disabled = true;
+          btn.textContent = 'Verifying payment…';
+          try {
+            const verifyRes = await fetch(`${API_BASE}/payments/verify`, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                webinarId: WEBINAR_ID,
+                fullName: details.fullName,
+                email: details.email,
+                phone: details.phone,
+                city: details.city,
+                state: details.state,
+                country: details.country,
+                razorpay_order_id: response.razorpay_order_id,
+                razorpay_payment_id: response.razorpay_payment_id,
+                razorpay_signature: response.razorpay_signature,
+              }),
+            });
+            const verifyJson = await verifyRes.json();
+            if (!verifyRes.ok || !verifyJson.success) {
+              throw new Error(parseApiError(verifyJson));
+            }
+            showSuccess(verifyJson.data, details);
+          } catch (err) {
+            showError(err.message || 'Payment received but verification failed. Contact support with your payment ID.');
+            resetPayButton(btn);
+          }
+        },
+        modal: {
+          ondismiss: () => resetPayButton(btn),
+        },
+      });
+
+      rzp.on('payment.failed', (resp) => {
+        showError(resp.error?.description || 'Payment failed. Please try again.');
+        resetPayButton(btn);
+      });
+
+      rzp.open();
+    } catch (err) {
+      showError(err.message || 'Could not start payment. Please try again.');
+      resetPayButton(btn);
+    }
+  }
+
+  function showSuccess(data, details) {
+    const date = data.webinar.webinarDate
+      ? new Date(data.webinar.webinarDate).toLocaleDateString('en-IN', { weekday:'long', day:'numeric', month:'long', year:'numeric' })
+      : '5 July 2026';
+    showModal(`
+      <div class="cm-modal-header" style="padding-bottom:8px">
+        <div class="cm-success-icon">🎉</div>
+        <h3 style="color:#fff;font-size:21px;font-weight:800;margin:12px 0 6px">You're in!</h3>
+        <p style="color:#94a3b8;font-size:14px;line-height:1.55;margin:0">
+          Payment confirmed. A confirmation email will be sent to<br/>
+          <b style="color:#fff">${details.email}</b>
+        </p>
+      </div>
+      <div class="cm-modal-body" style="padding-top:12px">
+        <div style="background:#0A0E1A;border:1px solid #1E2738;border-radius:12px;padding:16px 18px;margin-bottom:18px">
+          <p style="margin:0 0 8px;color:#64748B;font-size:11px;text-transform:uppercase;letter-spacing:0.1em">Workshop details</p>
+          <p style="margin:0 0 4px;color:#fff;font-size:14px"><b>${data.webinar.title}</b></p>
+          <p style="margin:0 0 4px;color:#CBD5E1;font-size:13px">📅 ${date} · ${data.webinar.webinarTime || '10:00 AM IST'}</p>
+          ${data.webinar.meetingLink ? `<p style="margin:8px 0 0;font-size:12px"><a href="${data.webinar.meetingLink}" style="color:#22D3EE" target="_blank">Join link →</a></p>` : ''}
+        </div>
+        <button onclick="closeModal()" class="cta-btn rounded-xl w-full py-3.5 text-base">Got it — see you there!</button>
+      </div>`);
+  }
+
+  window.pay = pay;
+  window.closeModal = closeModal;
+  window.submitBooking = submitBooking;
+  </script>
+</body>
+</html>
