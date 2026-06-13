@@ -8,7 +8,16 @@
   <meta property="og:title" content="Claude Masterclass — Master AI in One Day" />
   <meta property="og:description" content="90 minutes. 6 power skills. Live demos. ₹999. Use AI to do a day's work before lunch." />
   <meta property="og:type" content="website" />
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>" />
+  <meta property="og:url" content="https://webinar-frontend-phi.vercel.app/" />
+  <meta property="og:site_name" content="Claude Masterclass" />
+  <meta property="og:image" content="https://webinar-frontend-phi.vercel.app/assets/img/logo.jpg" />
+  <meta property="og:image:alt" content="Claude Masterclass logo" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Claude Masterclass — Master AI in One Day" />
+  <meta name="twitter:description" content="90 minutes. 6 power skills. Live demos. ₹999. Use AI to do a day's work before lunch." />
+  <meta name="twitter:image" content="https://webinar-frontend-phi.vercel.app/assets/img/logo.jpg" />
+  <link rel="icon" type="image/jpeg" href="/assets/img/logo.jpg" />
+  <link rel="apple-touch-icon" href="/assets/img/logo.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -279,26 +288,12 @@
       transition: border-color 0.2s;
     }
     .cm-field input:focus { border-color: #D97757; }
-    .cm-field input.invalid, .cm-combobox-input.invalid { border-color: #f87171; }
+    .cm-field input.invalid { border-color: #f87171; }
     .cm-field input::placeholder { color: #475569; }
     .cm-field { margin-bottom: 14px; }
     .cm-field-error { color: #f87171; font-size: 11px; margin-top: 4px; min-height: 14px; }
     .cm-error { color: #f87171; font-size: 12px; margin-top: 4px; }
     .cm-success-icon { font-size: 52px; line-height: 1; }
-    .cm-combobox { position: relative; }
-    .cm-combobox-list {
-      display: none; position: absolute; left: 0; right: 0; top: calc(100% - 4px);
-      max-height: 180px; overflow-y: auto; z-index: 20;
-      background: #0A0E1A; border: 1px solid #2A3551; border-radius: 10px;
-      margin: 0; padding: 4px 0; list-style: none;
-      box-shadow: 0 12px 32px rgba(0,0,0,0.45);
-    }
-    .cm-combobox.open .cm-combobox-list { display: block; }
-    .cm-combobox-option {
-      padding: 9px 14px; font-size: 13px; color: #CBD5E1; cursor: pointer;
-    }
-    .cm-combobox-option:hover, .cm-combobox-option.active { background: rgba(217,119,87,0.12); color: #fff; }
-    .cm-combobox-empty { padding: 9px 14px; font-size: 12px; color: #64748B; }
     .cm-phone-wrap { display: flex; gap: 8px; }
     .cm-phone-prefix {
       flex-shrink: 0; width: 58px; background: #0A0E1A; border: 1px solid #1E2738;
@@ -321,7 +316,7 @@
   <nav id="nav" class="sticky top-0 z-30 border-b border-transparent">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
       <a href="#top" class="flex items-center gap-2.5 group">
-        <div class="w-9 h-9 rounded-xl flex items-center justify-center text-lg shrink-0" style="background:linear-gradient(135deg,#D97757,#7C5CFF);box-shadow:0 0 18px rgba(217,119,87,0.35)">🤖</div>
+        <img src="/assets/img/logo.jpg" alt="" aria-hidden="true" class="w-9 h-9 rounded-xl object-cover shrink-0" width="36" height="36" />
         <span class="font-extrabold tracking-tight text-white text-[15px] hidden sm:inline">Claude<span class="grad-text">Masterclass</span></span>
       </a>
       <div class="hidden md:flex items-center gap-7 text-sm text-cm-muted font-medium">
@@ -512,7 +507,7 @@
       <div class="tilt-card relative bg-cm-card border border-cm-border rounded-2xl p-7 reveal">
         <div class="tilt-shine"></div>
         <div class="flex items-center gap-4">
-          <div class="w-20 h-20 rounded-2xl flex items-center justify-center text-3xl font-extrabold text-white border border-cm-borderLight" style="background:linear-gradient(135deg,#7C5CFF,#D97757);box-shadow:0 0 24px rgba(124,92,255,0.3)">B</div>
+          <img src="assets/img/bobby.jpg" alt="Bobby" class="w-20 h-20 rounded-2xl object-cover border border-cm-borderLight" style="box-shadow:0 0 24px rgba(124,92,255,0.3)"/>
           <div>
             <h3 class="text-xl font-extrabold text-white">Bobby <span class="text-cm-muted text-sm font-normal">@mr.bobbyig</span></h3>
             <p class="text-cm-coral text-sm font-medium">AI Content Creator & Community Host</p>
@@ -577,13 +572,13 @@
   <footer class="border-t border-cm-border">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-cm-muted">
       <div class="flex items-center gap-2.5">
-        <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:linear-gradient(135deg,#D97757,#7C5CFF)">🤖</div>
+        <img src="/assets/img/logo.jpg" alt="Claude Masterclass" class="w-8 h-8 rounded-lg object-cover shrink-0" width="32" height="32" />
         <span class="text-white font-bold">Claude Masterclass</span>
       </div>
       <div class="flex items-center gap-5">
-        <a href="#" class="hover:text-white transition">Privacy</a>
-        <a href="#" class="hover:text-white transition">Refund Policy</a>
-        <a href="#" class="hover:text-white transition">Contact</a>
+        <a href="/privacy" class="hover:text-white transition">Privacy</a>
+        <a href="/refund-policy" class="hover:text-white transition">Refund Policy</a>
+        <a href="/contact" class="hover:text-white transition">Contact</a>
       </div>
       <span>© 2026 Claude Masterclass · 🔒 Secure Checkout</span>
     </div>
@@ -907,53 +902,6 @@
   }
 
   /* ====================== BOOKING FORM ====================== */
-  const INDIAN_STATES = [
-    'Andhra Pradesh','Arunachal Pradesh','Assam','Bihar','Chhattisgarh','Goa','Gujarat','Haryana',
-    'Himachal Pradesh','Jharkhand','Karnataka','Kerala','Madhya Pradesh','Maharashtra','Manipur',
-    'Meghalaya','Mizoram','Nagaland','Odisha','Punjab','Rajasthan','Sikkim','Tamil Nadu','Telangana',
-    'Tripura','Uttar Pradesh','Uttarakhand','West Bengal','Andaman and Nicobar Islands','Chandigarh',
-    'Dadra and Nagar Haveli and Daman and Diu','Delhi','Jammu and Kashmir','Ladakh','Lakshadweep','Puducherry'
-  ];
-
-  const INDIAN_CITIES = {
-    'Andhra Pradesh': ['Visakhapatnam','Vijayawada','Guntur','Nellore','Kurnool','Tirupati','Kakinada','Rajahmundry','Kadapa','Anantapur'],
-    'Arunachal Pradesh': ['Itanagar','Tawang','Pasighat','Ziro','Bomdila','Tezu','Roing'],
-    'Assam': ['Guwahati','Silchar','Dibrugarh','Jorhat','Nagaon','Tinsukia','Tezpur','Karimganj','Sivasagar','Dhubri'],
-    'Bihar': ['Patna','Gaya','Muzaffarpur','Bhagalpur','Darbhanga','Purnia','Arrah','Begusarai','Katihar','Munger'],
-    'Chhattisgarh': ['Raipur','Bhilai','Bilaspur','Korba','Durg','Rajnandgaon','Jagdalpur','Raigarh','Ambikapur'],
-    'Goa': ['Panaji','Margao','Vasco da Gama','Mapusa','Ponda','Bicholim'],
-    'Gujarat': ['Ahmedabad','Surat','Vadodara','Rajkot','Bhavnagar','Jamnagar','Gandhinagar','Junagadh','Anand','Nadiad'],
-    'Haryana': ['Faridabad','Gurgaon','Panipat','Ambala','Yamunanagar','Rohtak','Hisar','Karnal','Sonipat','Panchkula'],
-    'Himachal Pradesh': ['Shimla','Dharamshala','Solan','Mandi','Kullu','Manali','Bilaspur','Hamirpur','Una'],
-    'Jharkhand': ['Ranchi','Jamshedpur','Dhanbad','Bokaro','Deoghar','Hazaribagh','Giridih','Ramgarh','Phusro'],
-    'Karnataka': ['Bengaluru','Mysuru','Mangaluru','Hubballi','Belagavi','Davanagere','Ballari','Tumakuru','Shivamogga','Raichur'],
-    'Kerala': ['Thiruvananthapuram','Kochi','Kozhikode','Thrissur','Kollam','Alappuzha','Palakkad','Malappuram','Kannur','Kasaragod'],
-    'Madhya Pradesh': ['Bhopal','Indore','Jabalpur','Gwalior','Ujjain','Sagar','Dewas','Satna','Ratlam','Rewa'],
-    'Maharashtra': ['Mumbai','Pune','Nagpur','Thane','Nashik','Aurangabad','Solapur','Kolhapur','Amravati','Navi Mumbai'],
-    'Manipur': ['Imphal','Thoubal','Bishnupur','Churachandpur','Ukhrul','Senapati'],
-    'Meghalaya': ['Shillong','Tura','Jowai','Nongstoin','Baghmara','Williamnagar'],
-    'Mizoram': ['Aizawl','Lunglei','Champhai','Serchhip','Kolasib'],
-    'Nagaland': ['Kohima','Dimapur','Mokokchung','Tuensang','Wokha','Mon'],
-    'Odisha': ['Bhubaneswar','Cuttack','Rourkela','Berhampur','Sambalpur','Puri','Balasore','Bhadrak','Baripada'],
-    'Punjab': ['Ludhiana','Amritsar','Jalandhar','Patiala','Bathinda','Mohali','Pathankot','Hoshiarpur','Moga','Batala'],
-    'Rajasthan': ['Jaipur','Jodhpur','Udaipur','Kota','Bikaner','Ajmer','Bhilwara','Alwar','Sikar','Pali'],
-    'Sikkim': ['Gangtok','Namchi','Gyalshing','Mangan','Rangpo'],
-    'Tamil Nadu': ['Chennai','Coimbatore','Madurai','Tiruchirappalli','Salem','Tirunelveli','Tiruppur','Erode','Vellore','Thoothukudi'],
-    'Telangana': ['Hyderabad','Warangal','Nizamabad','Karimnagar','Khammam','Ramagundam','Mahbubnagar','Nalgonda','Adilabad'],
-    'Tripura': ['Agartala','Udaipur','Dharmanagar','Kailashahar','Belonia'],
-    'Uttar Pradesh': ['Lucknow','Kanpur','Ghaziabad','Agra','Varanasi','Meerut','Prayagraj','Bareilly','Aligarh','Moradabad'],
-    'Uttarakhand': ['Dehradun','Haridwar','Roorkee','Haldwani','Rudrapur','Kashipur','Rishikesh','Nainital','Almora'],
-    'West Bengal': ['Kolkata','Howrah','Durgapur','Asansol','Siliguri','Bardhaman','Malda','Kharagpur','Haldia','Darjeeling'],
-    'Andaman and Nicobar Islands': ['Port Blair','Diglipur','Rangat','Mayabunder'],
-    'Chandigarh': ['Chandigarh'],
-    'Dadra and Nagar Haveli and Daman and Diu': ['Daman','Diu','Silvassa'],
-    'Delhi': ['New Delhi','Delhi','Dwarka','Rohini','Saket','Karol Bagh'],
-    'Jammu and Kashmir': ['Srinagar','Jammu','Anantnag','Baramulla','Udhampur','Kathua','Sopore'],
-    'Ladakh': ['Leh','Kargil'],
-    'Lakshadweep': ['Kavaratti','Agatti','Minicoy'],
-    'Puducherry': ['Puducherry','Karaikal','Mahe','Yanam']
-  };
-
   const EMAIL_RE = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z]{2,})+$/;
   const PHONE_RE = /^[6-9]\d{9}$/;
 
@@ -972,7 +920,7 @@
   }
 
   function clearFormErrors() {
-    ['errFirstName','errLastName','errEmail','errPhone','errState','errCity'].forEach(id => setFieldError(id, ''));
+    ['errFirstName','errLastName','errEmail','errPhone'].forEach(id => setFieldError(id, ''));
     showError('');
   }
 
@@ -982,8 +930,6 @@
     const lastName = details.lastName?.trim() || '';
     const email = details.email?.trim() || '';
     const phone = normalizePhone(details.phone || '');
-    const state = details.state?.trim() || '';
-    const city = details.city?.trim() || '';
 
     if (!firstName || firstName.length < 2) {
       setFieldError('errFirstName', 'Enter a valid first name');
@@ -1005,104 +951,13 @@
       valid = false;
     } else setFieldError('errPhone', '');
 
-    if (!state || !INDIAN_STATES.includes(state)) {
-      setFieldError('errState', 'Select a state from the list');
-      valid = false;
-    } else setFieldError('errState', '');
-
-    const cities = INDIAN_CITIES[state] || [];
-    if (!city || !cities.includes(city)) {
-      setFieldError('errCity', state ? 'Select a city from the list' : 'Select a state first');
-      valid = false;
-    } else setFieldError('errCity', '');
-
     return valid ? {
       firstName, lastName, fullName: `${firstName} ${lastName}`.trim(),
-      email, phone: phone, state, city,
-      country: details.country?.trim() || 'India',
+      email, phone,
     } : null;
   }
 
-  function createCombobox({ inputId, hiddenId, listId, options: initial = [], placeholder, onChange }) {
-    const input = document.getElementById(inputId);
-    const hidden = document.getElementById(hiddenId);
-    const list = document.getElementById(listId);
-    const wrap = input?.closest('.cm-combobox');
-    if (!input || !hidden || !list || !wrap) return null;
-
-    let options = [...initial];
-    let activeIdx = -1;
-
-    const render = (query = '') => {
-      const q = query.trim().toLowerCase();
-      const filtered = options.filter(o => o.toLowerCase().includes(q));
-      activeIdx = -1;
-      list.innerHTML = filtered.length
-        ? filtered.map((o, i) => `<li class="cm-combobox-option" data-value="${o}" data-idx="${i}">${o}</li>`).join('')
-        : '<li class="cm-combobox-empty">No matches found</li>';
-    };
-
-    const select = (value) => {
-      hidden.value = value;
-      input.value = value;
-      input.classList.remove('invalid');
-      wrap.classList.remove('open');
-      onChange?.(value);
-    };
-
-    input.placeholder = placeholder;
-    input.addEventListener('focus', () => { render(input.value); wrap.classList.add('open'); });
-    input.addEventListener('input', () => { hidden.value = ''; render(input.value); wrap.classList.add('open'); });
-    input.addEventListener('keydown', (e) => {
-      const items = [...list.querySelectorAll('.cm-combobox-option')];
-      if (!items.length) return;
-      if (e.key === 'ArrowDown') { e.preventDefault(); activeIdx = Math.min(activeIdx + 1, items.length - 1); }
-      else if (e.key === 'ArrowUp') { e.preventDefault(); activeIdx = Math.max(activeIdx - 1, 0); }
-      else if (e.key === 'Enter' && activeIdx >= 0) { e.preventDefault(); select(items[activeIdx].dataset.value); return; }
-      else if (e.key === 'Escape') { wrap.classList.remove('open'); return; }
-      else return;
-      items.forEach((el, i) => el.classList.toggle('active', i === activeIdx));
-    });
-    list.addEventListener('mousedown', (e) => {
-      const opt = e.target.closest('.cm-combobox-option');
-      if (opt) { e.preventDefault(); select(opt.dataset.value); }
-    });
-    document.addEventListener('click', (e) => {
-      if (!wrap.contains(e.target)) wrap.classList.remove('open');
-    });
-
-    return {
-      setOptions(newOptions, newPlaceholder) {
-        options = [...newOptions];
-        input.value = '';
-        hidden.value = '';
-        if (newPlaceholder) input.placeholder = newPlaceholder;
-        render('');
-      },
-      setDisabled(disabled) {
-        input.disabled = disabled;
-      },
-    };
-  }
-
-  let cityCombobox = null;
-
   function initBookingForm() {
-    createCombobox({
-      inputId: 'stateInput', hiddenId: 'stateHidden', listId: 'stateList',
-      options: INDIAN_STATES, placeholder: 'Search state…',
-      onChange: (state) => {
-        cityCombobox?.setOptions(INDIAN_CITIES[state] || [], 'Search city…');
-        cityCombobox?.setDisabled(!state);
-      },
-    });
-
-    cityCombobox = createCombobox({
-      inputId: 'cityInput', hiddenId: 'cityHidden', listId: 'cityList',
-      options: [], placeholder: 'Select state first',
-    });
-    cityCombobox?.setDisabled(true);
-
     document.getElementById('phoneInput')?.addEventListener('input', (e) => {
       e.target.value = e.target.value.replace(/\D/g, '').slice(0, 10);
     });
@@ -1170,23 +1025,6 @@
           </div>
           <p class="cm-field-error" id="errPhone"></p>
         </div>
-        <div class="grid grid-cols-2 gap-3">
-          <div class="cm-field cm-combobox" style="margin-bottom:0">
-            <label>State *</label>
-            <input type="text" id="stateInput" class="cm-combobox-input" autocomplete="off" />
-            <input type="hidden" id="stateHidden" name="state" />
-            <ul class="cm-combobox-list" id="stateList"></ul>
-            <p class="cm-field-error" id="errState"></p>
-          </div>
-          <div class="cm-field cm-combobox" style="margin-bottom:0">
-            <label>City *</label>
-            <input type="text" id="cityInput" class="cm-combobox-input" autocomplete="off" disabled />
-            <input type="hidden" id="cityHidden" name="city" />
-            <ul class="cm-combobox-list" id="cityList"></ul>
-            <p class="cm-field-error" id="errCity"></p>
-          </div>
-        </div>
-        <input type="hidden" name="country" value="India" />
         <p id="formError" class="cm-error" style="display:none;margin-bottom:10px"></p>
         <button type="submit" id="payBtn" class="cta-btn rounded-xl w-full py-3.5 text-base flex items-center justify-center gap-2 mt-2">
           Proceed to Pay ₹999 <span>→</span>
@@ -1262,9 +1100,6 @@
                 fullName: details.fullName,
                 email: details.email,
                 phone: details.phone,
-                city: details.city,
-                state: details.state,
-                country: details.country,
                 razorpay_order_id: response.razorpay_order_id,
                 razorpay_payment_id: response.razorpay_payment_id,
                 razorpay_signature: response.razorpay_signature,

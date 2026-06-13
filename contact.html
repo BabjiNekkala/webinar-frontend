@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Claude Masterclass</title>
+  <meta name="description" content="Get in touch with the Claude Masterclass team for support, refunds, or general enquiries." />
+  <meta property="og:title" content="Contact — Claude Masterclass" />
+  <meta property="og:description" content="Questions about the workshop, your booking, or a refund? Email the Claude Masterclass team." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://webinar-frontend-phi.vercel.app/contact" />
+  <meta property="og:site_name" content="Claude Masterclass" />
+  <meta property="og:image" content="https://webinar-frontend-phi.vercel.app/assets/img/logo.jpg" />
+  <meta property="og:image:alt" content="Claude Masterclass logo" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:image" content="https://webinar-frontend-phi.vercel.app/assets/img/logo.jpg" />
+  <link rel="icon" type="image/jpeg" href="/assets/img/logo.jpg" />
+  <link rel="apple-touch-icon" href="/assets/img/logo.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+          colors: {
+            cm: {
+              bg: '#080B14', card: '#111726', border: '#1E2738', borderLight: '#2A3551',
+              coral: '#D97757', coralHover: '#E89070', muted: '#64748B', light: '#CBD5E1'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { background: #080B14; -webkit-font-smoothing: antialiased; }
+    body::before {
+      content: ''; position: fixed; inset: 0;
+      background-image:
+        linear-gradient(rgba(30,39,56,0.30) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(30,39,56,0.30) 1px, transparent 1px);
+      background-size: 56px 56px; pointer-events: none; z-index: 0;
+      mask-image: radial-gradient(ellipse 100% 60% at 50% 0%, #000 30%, transparent 80%);
+    }
+    body > * { position: relative; z-index: 1; }
+    .grad-text {
+      background: linear-gradient(120deg, #E89070 0%, #D97757 35%, #9D7BFF 100%);
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .contact-card {
+      background: #111726; border: 1px solid #1E2738; border-radius: 16px;
+      padding: 2rem; text-align: center;
+    }
+    .email-btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      margin-top: 1.5rem; padding: 0.875rem 1.5rem;
+      background: linear-gradient(135deg, #D97757, #B85C3E);
+      color: #fff; font-weight: 600; font-size: 0.9375rem;
+      border-radius: 12px; transition: opacity 0.2s, transform 0.2s;
+      box-shadow: 0 4px 24px rgba(217,119,87,0.25);
+    }
+    .email-btn:hover { opacity: 0.92; transform: translateY(-1px); }
+  </style>
+</head>
+<body class="font-sans text-cm-light min-h-screen flex flex-col">
+  <header class="border-b border-cm-border">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 py-5 flex items-center justify-between gap-4">
+      <a href="/" class="flex items-center gap-2.5 text-white font-bold hover:opacity-90 transition">
+        <img src="/assets/img/logo.jpg" alt="" aria-hidden="true" class="w-8 h-8 rounded-lg object-cover shrink-0" width="32" height="32" />
+        Claude Masterclass
+      </a>
+      <a href="/" class="text-sm text-cm-muted hover:text-white transition">← Back to home</a>
+    </div>
+  </header>
+
+  <main class="flex-1 max-w-3xl mx-auto px-4 sm:px-6 py-12 sm:py-16 w-full">
+    <p class="text-cm-coral text-xs font-semibold uppercase tracking-[0.2em] mb-3">Get in touch</p>
+    <h1 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-3">Contact Us</h1>
+    <p class="text-cm-muted text-sm mb-10 max-w-lg">
+      Have a question about the workshop, your booking, or a refund? Send us an email and we’ll get back to you within 2 business days.
+    </p>
+
+    <div class="contact-card max-w-md mx-auto">
+      <div style="font-size:48px;line-height:1;margin-bottom:12px">✉️</div>
+      <h2 class="text-white text-lg font-bold mb-2">Email us</h2>
+      <p class="text-cm-muted text-sm leading-relaxed">
+        For registration help, payment issues, refund requests, or anything else about Claude Masterclass.
+      </p>
+      <a href="mailto:hello@claodemasterclass.com" class="email-btn">
+        hello@claodemasterclass.com
+      </a>
+      <p class="text-cm-muted text-xs mt-5">
+        Include your registered name and email if your enquiry is about an existing booking.
+      </p>
+    </div>
+
+    <div class="mt-12 text-center text-sm text-cm-muted space-y-2">
+      <p>Looking for our policies?</p>
+      <p>
+        <a href="/privacy" class="text-cyan-400 hover:text-white transition underline underline-offset-2">Privacy Policy</a>
+        <span class="mx-2">·</span>
+        <a href="/refund-policy" class="text-cyan-400 hover:text-white transition underline underline-offset-2">Refund Policy</a>
+      </p>
+    </div>
+  </main>
+
+  <footer class="border-t border-cm-border mt-auto">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-cm-muted">
+      <span>© 2026 Claude Masterclass</span>
+      <div class="flex items-center gap-5">
+        <a href="/privacy" class="hover:text-white transition">Privacy</a>
+        <a href="/refund-policy" class="hover:text-white transition">Refund Policy</a>
+        <a href="/contact" class="text-white">Contact</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
