@@ -601,8 +601,7 @@
   const API_BASE = (() => {
     const host = window.location.hostname;
     if (host === 'localhost' || host === '127.0.0.1') return 'http://localhost:5000/api';
-    // Update this URL when you deploy the backend
-    return `${window.location.protocol}//${host.replace(/^www\./, '')}:5000/api`;
+    return 'https://webinar-backend-4p1p.onrender.com/api';
   })();
   let WEBINAR_ID = null;
 
